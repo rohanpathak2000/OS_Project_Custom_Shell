@@ -1,0 +1,146 @@
+item_list(i).txt - contains the list of items in the shop no. 'i'
+---------------------------------------
+for item no. 'i'
+ item_i item_name stock cost
+
+
+login.sh - logging in as either user or shopkeeper
+------------------------------------------------------
+echo "
+echo "1: Customer"
+echo "2: Shopkeeper"
+echo "
+
+read cust_or_owner
+
+if [ $cust_or_owner -eq 1 ]
+then
+	bash customer_home_page.sh
+
+else
+	echo "
+	echo "Enter your id: "
+	echo "
+
+	read shopkeeper_id
+
+	if [ $shopkeeper_id -eq 3 ] 
+	then
+		bash shopkeeper_home_page_3.sh
+	elif [ $shopkeeper_id -eq 2 ]
+	then
+		bash shopkeeper_home_page_2.sh
+	elif [ $shopkeeper_id -eq 1 ]
+	then
+		bash shopkeeper_home_page_1.sh
+	else
+		echo "
+		echo "Incorrect Shop ID"
+		echo "Please Enter correct ID"
+		echo "
+	fi
+fi
+
+
+customer_home_page.sh - customer will select shop and choose the item
+---------------------------------------------------------------------------
+
+echo "
+echo "Enter Shop name from which you want to purchase : "
+echo "
+read shop_query
+
+echo "
+echo " ******************* Items **************** "
+if [ $shop_query -eq "shop_name_1" ]
+then
+	cat item_list(1).txt
+elif [ $shop_query -eq "shop_name_2" ]
+then
+	cat item_list(2).txt
+elif [ $shop_query -eq "shop_name_3" ]
+then
+	cat item_list(3).txt
+else
+	echo "shop not found"
+fi
+echo "
+python order_input.py
+
+
+
+order_input(i).py - Gets the customer order
+----------------------------------------------------------------------------------- 
+item_list =  []
+choice = true
+
+#######  Updates item for Supplier ########
+
+def changeStock(item_content,qty):
+	stock = int(item_content[3])  
+	item_content = item_content[:len(book_content)-1]
+	stock = stock - int(qty)
+	item_content.append(" " + str(stock))
+	item_content.append("\n")
+	item = " ".join(item_content)
+	return item  
+	`	
+###########################################
+
+######## Order Fails ######################
+
+def itemNotFound(item_content):
+	print(item_content[1] + "Not Available")
+
+def notEnoughStock(item_content):
+	print(item_content[1] + "Not available for the given qty" )
+	print
+
+###########################################
+
+
+########### Items to be ordered by user #############
+
+while(choice == true):
+	item_name = input("Enter item name : ")
+	item_qty = input("Enter qty : ")
+	item_details = { 'name' : item_name,
+			 'qty' : item_qty,	
+			}
+	item_list.append(item_details)
+	choice = input("Do you wish to buy more items")
+
+#####################################################
+
+	
+with open('item_list(i).txt','r') as items_file:
+	items = items_file(i).readlines()
+
+############# Change the suppplier's stock according to the order ################
+
+with open('item_list(i).txt','w') as items_file:
+	for currItem in item_list:
+		item_found = false
+		for item in items:
+			item_content = item.split(" ")
+			if item_content[1] == currItem.item_name:
+				if item_content[3] > currItem.qty:
+					changedItem = changeStock(item_content,currItem.qty)
+					item_found = true
+					items_file.write(changedItem)
+`					continue			
+				else:
+					notEnoughStock(item_content)
+			items_file.write(item)
+		if item_found == false:
+			itemNotFound(item_content)
+		
+##################################################################################		
+				  	
+
+
+		 
+
+
+
+	
