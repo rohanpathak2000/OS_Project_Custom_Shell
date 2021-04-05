@@ -1,7 +1,7 @@
 ongoing_order = True
 order_success = False
 item_found = False
-#while(ongoing_order): hatt bc
+#while(ongoing_order): 
 item_name = input("Enter Name of Item : ")
 item_qty = int(input("Enter the qty of purchase : "))
 items_file = open("items.txt","r")
