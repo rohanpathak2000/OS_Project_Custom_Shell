@@ -1,7 +1,7 @@
 ongoing_order = True
 order_success = False
 item_found = False
-#while(ongoing_order):
+#while(ongoing_order): hatt bc
 item_name = input("Enter Name of Item : ")
 item_qty = int(input("Enter the qty of purchase : "))
 items_file = open("items.txt","r")
@@ -9,7 +9,7 @@ item_detail_snippets_list = items_file.readlines()
 with open("items.txt", "w") as items_file:
     for item_detail_snippet in item_detail_snippets_list:
         #print(item_detail_snippet)
-        #item = item_detail_snippet.split(' ')
+        #item = item_detail_snippet.split(' ')jggjvvvhb
         #print(item)
         #print(item[1])
         if item[1] == item_name:
