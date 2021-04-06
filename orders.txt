@@ -1,0 +1,5 @@
+1    banana    20    1000
+1    paneer    20    1000
+1    mango    10    100
+2    curd    20    1000
+3    cream    20    800

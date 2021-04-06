@@ -6,6 +6,8 @@ printf "Enter Choice : "
 read ch
 if [ $ch -eq 1 ]
 then
+	echo " ============= == ITEMS AVAILABLE == ================="
+	echo " Item_Id        Name               Stock          Rate "
 	cat items.txt	
 elif [ $ch -eq 2 ]
 then
