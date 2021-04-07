@@ -20,7 +20,7 @@ order_snippet_list = orders_file.readlines()
 last_order = order_snippet_list[-1]
 print(last_order[0])
 if int(last_order[0]) > 0:
-    order_id = int(last_order[0]) + 1 
+    order_id = int(last_order[0]) + 1   
     
 while ongoing_order:
     with open("items.txt", "r") as items_file:

@@ -1,8 +1,11 @@
-wguke
+flag=1
+while [ $flag -eq 1 ]
+do
 echo " "
 echo " 1. View all the available items  "
 echo " 2. Search an item "
 echo " 3. Place an Order "
+echo " 4. Exit "
 printf "Enter Choice : "
 read ch
 if [ $ch -eq 1 ]
@@ -41,6 +44,12 @@ then
 elif [ $ch -eq 3 ]
 then
 	python give_order.py
+elif [ $ch -eq 4 ]
+then
+	flag=0
 fi
+done
+
+
 
 	
