@@ -4,9 +4,10 @@ do
 echo " "
 echo " 1. View all the available items  "
 echo " 2. Search an item "
-echo " 3. Place an Order "
-echo " 4. Exit "
-printf "Enter Choice : "
+echo " 3. Add to Cart "
+echo " 4. Look at past orders "
+echo " 5. Exit "
+printf " Enter Choice : "
 read ch
 if [ $ch -eq 1 ]
 then
@@ -33,8 +34,7 @@ then
 		elif [ $category_choice -eq 2 ]
 		then
 			grep "dairy" items.txt
-		fi		
-		
+		fi	
 	elif [ $search_method -eq 2 ]
 	then	
 		printf "\nEnter Name : "
@@ -45,6 +45,9 @@ elif [ $ch -eq 3 ]
 then
 	python give_order.py
 elif [ $ch -eq 4 ]
+then
+	cat orders.txt
+elif [ $ch -eq 5 ]
 then
 	flag=0
 fi

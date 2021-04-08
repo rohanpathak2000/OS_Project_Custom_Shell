@@ -6,7 +6,8 @@ read consumer_or_shopkeeper
 
 if [ $consumer_or_shopkeeper -eq 1 ]
 then
-	bash consumer_home_page.sh
+	python authentication.py
+	#bash consumer_home_page.sh
 else 
 	printf "\nEnter Shopkeeper Id : "
 	read shopkeeper_id

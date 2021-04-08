@@ -1,11 +1,10 @@
-1 apple fruits 60 50
-2 banana fruits 50 50 
+1 apple fruits 30 50
+2 banana fruits 20 50 
 3 orange fruits 80 20 
 4 mango fruits 40 10
-5 muskmelon fruits 50 50
-6 paneer dairy 50 50 
-7 butter dairy 120 70
+5 muskmelon fruits 30 50
+6 paneer dairy 20 50 
+7 butter dairy 50 70
 8 ghee dairy 150 100
 9 cream dairy 100 40
-10 curd dairy 200 50
- 
+10 curd dairy 180 50
