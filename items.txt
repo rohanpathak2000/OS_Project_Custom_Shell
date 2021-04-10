@@ -1,7 +1,7 @@
 1 apple fruits 30 50
 2 banana fruits 20 50 
 3 orange fruits 80 20 
-4 mango fruits 40 10
+4 mango fruits 7 10
 5 muskmelon fruits 30 50
 6 paneer dairy 20 50 
 7 butter dairy 50 70
