@@ -1,5 +1,5 @@
 1 apple fruits 30 50
-2 banana fruits 0 50 
+2 banana fruits 100 50 
 3 orange fruits 70 20 
 4 mango fruits 40 10
 5 muskmelon fruits 30 50
