@@ -1,22 +1,19 @@
 echo "                                             "
 echo "Press Following Keys for Following Operations"
 echo "                                             "
-echo "1)	View Undelivered Orders"
+echo "1)	View Undelivered Orders                "
 echo "2)    Confirm Delivery                       "
 echo "											   "
 
 read operation_number
 
-if [$operation_number -eq 1]
-then
-   echo "                                             "
-   echo "Enter Your transporter Id"
-   echo "                                             "
-   read trp_id
-fi
-
 if [ $operation_number -eq 1 ]
 then
+    echo "                                             "
+    echo "Enter Your transporter Id"
+    echo "                                             "
+    read trp_id
+	
     if [ $trp_id -eq 7 ]
 	then
 	   echo "                                             "

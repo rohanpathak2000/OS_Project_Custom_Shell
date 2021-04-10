@@ -7,9 +7,8 @@ read consumer_or_shopkeeper
 
 if [ $consumer_or_shopkeeper -eq 1 ]
 then
-	python authentication.py
-	#bash consumer_home_page.sh
-elif [ $consumer_or_shopkeeper -eq 2] 
+	bash consumer_home_page.sh
+elif [ $consumer_or_shopkeeper -eq 2 ]  
 then
 	printf "\nEnter Shopkeeper Id : "
 	read shopkeeper_id
@@ -19,7 +18,7 @@ then
 	else
 	    printf "\n Incorrect Shopkeeper id\n Enter correct id "
 	fi
-elif [ $consumer_or_shopkeeper -eq 3]
+elif [ $consumer_or_shopkeeper -eq 3 ]
 then
     printf "\nEnter Transporter Id :"
 	read transporter_id

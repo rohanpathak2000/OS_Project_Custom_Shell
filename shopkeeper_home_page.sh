@@ -10,12 +10,10 @@ read operation_number
 
 if [ $operation_number -eq 1 ]
 then
-   echo "                                         "
-   echo "Enter Your shop Id"
-   echo "                                             "
-fi
-if [ $operation_number -eq 1 ]
-then
+    echo "                                         "
+    echo "Enter Your shop Id"
+    echo "                                         "
+	read shop_id
     if [ $shop_id -eq 1 ]
 	then
 	   echo "                                             "

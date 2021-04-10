@@ -1,3 +1,17 @@
+def ordrw(join):
+    with open('orders.txt', 'r') as items_file:
+        items = items_file.readlines()
+    koin=join.split(" ")
+    with open('orders.txt','w') as chatter_file:
+        for item in items:
+            bitems=item.split(" ")
+            if koin[0]==bitems[0]:
+                bitems[4] = "delivered"
+                join=" ".join(bitems)
+                chatter_file.write(join)
+                continue
+            chatter_file.write(item)
+
 print("enter your transporter id")
 trp_id=int(input())
 
@@ -16,6 +30,7 @@ if(trp_id==7):
                     dlvd_list[4]="delivered"
                     join=" ".join(dlvd_list)
                     tp_file.write(join)
+                    ordrw(join)
                 continue
             elif dlvd_list[4]=="pending":
                 print("order has not been picked up yet")
@@ -35,6 +50,7 @@ if(trp_id==8):
                     dlvd_list[4]="delivered"
                     join=" ".join(dlvd_list)
                     tp_file.write(join)
+                    ordrw(join)
                 continue
             elif dlvd_list[4]=="pending":
                 print("order has not been picked up yet")
