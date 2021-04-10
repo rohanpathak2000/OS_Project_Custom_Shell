@@ -2,3 +2,5 @@ od_1 apple 10 500 pending sp_1 utk
 od_4 curd 20 1000 pending sp_2 utk
 od_5 paneer 20 1000 in_cart sp_2 sahil
 od_6 butter 20 1400 pending sp_2 utk
+od_7 banana 20 1000 pending sp_1 utk
+od_7 orange 10 200 pending sp_1 utk

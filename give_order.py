@@ -62,8 +62,19 @@ def confirm_order():
                 print("Order Placed Successfully !!")
     else:                    
         print("Nothing in cart ...")           
+        
+        
+def findShop(od):
+    shops_file = open("shops.txt","r")
+    shop_snippet_list = shops_file.readlines()
+    for shop_snippet in shop_snippet_list:
+        shop = shop_snippet.split(' ')
+        if shop[0] == od:
+            sp = " ".join(shop[1:])
+            return sp    
+    shops_file.close()
+    
          
-     
 def register():
     flag = 1
     global currUser
@@ -125,6 +136,8 @@ else:
     session = register()
 
 print(currUser)
+
+
 flag = 1
 if session == 1:
     while flag==1:
@@ -179,24 +192,29 @@ if session == 1:
                     if order[4] == "in_cart" and order[6] == currUser+"\n":
                         for od in order:
                             if od != "in_cart" and od != currUser+"\n":
-                                print(od + " ",end="")
+                                if "sp" in od:
+                                    shop_name = findShop(od)
+                                    print(shop_name + " ",end="")
+                                else:
+                                    print(od + " ",end="")
                         print("\n")    
             print(" ")
         elif ch == '3':
-            ptr = 0
-            ord_id = input("Enter order id: ")
-            item_name = input("Enter item name : ")
-            orders_file = open("orders.txt","r")
-            order_snippet_list = orders_file.readlines()
-            with open("orders.txt","w") as orders_file:
-                for order_snippet in order_snippet_list:
-                    order = order_snippet.split(' ')
-                    if order[1] == item_name and order[0] == ord_id:
-                        ptr = 1
-                        continue
-                    orders_file.write(order_snippet)
-            if ptr == 0:
-                print("Item not found ...")
+            if ch == '1':
+                ptr = 0
+                ord_id = input("Enter order id: ")
+                item_name = input("Enter item name : ")
+                orders_file = open("orders.txt","r")
+                order_snippet_list = orders_file.readlines()
+                with open("orders.txt","w") as orders_file:
+                    for order_snippet in order_snippet_list:
+                        order = order_snippet.split(' ')
+                        if order[1] == item_name and order[0] == ord_id:
+                            ptr = 1
+                            continue
+                        orders_file.write(order_snippet)
+                if ptr == 0:
+                    print("Item not found ...")
         elif ch == '4':
             print(" ----- Cart Items ----")
             orders_file = open("orders.txt","r")
@@ -207,7 +225,11 @@ if session == 1:
                     if order[4] == "in_cart" and order[6] == currUser+"\n":
                         for od in order:
                             if od != "in_cart" and od != currUser+"\n":
-                                print(od + " ",end="")
+                                if "sp" in od:
+                                    shop_name = findShop(od)
+                                    print(shop_name + " ",end="")
+                                else:
+                                    print(od + " ",end="")
                         print("\n")    
             print(" ")
             ch = input("Are you sure you want to put the order ? [Y/N] ")
