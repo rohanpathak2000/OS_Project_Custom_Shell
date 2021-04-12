@@ -4,16 +4,14 @@ do
 echo " "
 echo " 1. View all the available items  "
 echo " 2. Search an item "
-echo " 3. Add to Cart "
-echo " 4. Look at past orders "
+echo " 3. Go to Dashboard "
+echo " 5. View Order History "
 echo " 5. Exit "
 printf " Enter Choice : "
 read ch
 if [ $ch -eq 1 ]
 then
-	echo " ============= == ITEMS AVAILABLE == ================="
-	echo " Item_Id        Name               Stock          Rate "
-	cat items.txt	
+	python show_items.py
 elif [ $ch -eq 2 ]
 then
 	echo ""
@@ -43,10 +41,11 @@ then
 	fi
 elif [ $ch -eq 3 ]
 then
-	python give_order.py
+	python consumer_dashboard.py
+	continue
 elif [ $ch -eq 4 ]
 then
-	cat orders.txt
+	python order_history.py
 elif [ $ch -eq 5 ]
 then
 	flag=0
