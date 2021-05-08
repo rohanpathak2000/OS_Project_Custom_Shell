@@ -169,7 +169,7 @@ else:
 flag = 1
 if session == 1:
     while flag==1:
-        print("1. View Cart\n2. Add to Cart\n3. Delete from Cart\n4. Place the order\n6. View Profile\n7. Change Details\n8. View Order History\n9. Return an item\n5. Exit")
+        print("1. View Cart\n2. Add to Cart\n3. Delete from Cart\n4. Place the order\n6. View Profile\n7. Change Details\n8. View Order History\n9. Return an item\n5. Exit\n10. View All Items\n11. Search an item");
         ch = input("Enter choice : ")
         if ch == '2':
             while ongoing_order:
@@ -376,6 +376,30 @@ if session == 1:
                     print("Request for return sent !!!")
                 else:
                     print("Invalid Operation !! ")
-        
+        elif ch == '10':
+            items_file = open("items.txt","r")
+            item_snippet_list = items_file.readlines()
+            for item_snippet in item_snippet_list:
+                print(item_snippet,end='')
+        elif ch == '11':
+            print("Lookup by \n1. Category Name\n2. Item name")
+            c = input("Enter Choice : ")
+            if c == '1':
+                items_file = open("items.txt","r")
+                cat_name = input("Enter name : ")
+                item_snippet_list = items_file.readlines()
+                for item_snippet in item_snippet_list:
+                    item = item_snippet.split(' ')
+                    if item[2] == cat_name:
+                        print(item_snippet)
+            elif c == '2':
+                items_file = open("items.txt","r")
+                itm_name = input("Enter name : ")
+                for item_snippet in item_snippet_list:
+                    item = item_snippet.split(' ')
+                    if item[1] == itm_name:
+                        print(item_snippet)
+                
+            
 else:
     print("Username or Password not found ")
