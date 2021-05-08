@@ -3,7 +3,7 @@
 3 orange fruits 65 20 
 4 mango fruits 40 10
 5 muskmelon fruits 28 50
-6 paneer dairy 20 50 
+6 paneer dairy 15 50 
 7 butter dairy 50 70
 8 ghee dairy 150 100
 9 cream dairy 80 40

@@ -1,6 +1,6 @@
 print("enter your transporter id")
 trp_id=int(input())
-
+#change qty when return pickup successful
 if(trp_id==7):
     with open('orders.txt','r') as dlvy_file:
         dlvy = dlvy_file.readlines()
