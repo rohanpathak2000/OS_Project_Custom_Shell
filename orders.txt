@@ -7,3 +7,4 @@ od_7 orange 10 200 delivered tp_7 sp_1 utk
 od_8 muskmelon 2 100 in_cart sp_1 sahil
 od_8 orange 5 100 delivered tp_7 sp_1 sahil
 od_9 paneer 5 250 pending sp_2 utk
+od_10 muskmelon 5 250 in_cart sp_1 utk
