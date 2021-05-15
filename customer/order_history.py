@@ -1,9 +1,12 @@
 import sys
+from pathlib import Path
 
+data_folder = Path("E:\Win2020-21\OS\Project")
 currUser = sys.argv[1]
 
 def findTrans(od):
-    trans_file = open("../transporter/transporters.txt","r")
+    file_to_open = data_folder / "transporter/transporters.txt"
+    trans_file = open(file_to_open,"r")
     trans_snippet_list = trans_file.readlines()
     for trans_snippet in trans_snippet_list:
         trans = trans_snippet.split(' ')
@@ -14,10 +17,11 @@ def findTrans(od):
             trans[-1] = last_name
             tr = " ".join(trans)
             return tr
-    trans_file.close()  
+    trans_file.close()
     
 def findShop(od):
-    shops_file = open("../shopkeeper/shops.txt","r")
+    file_to_open = data_folder / "shopkeeper/shops.txt"
+    shops_file = open(file_to_open,"r")
     shop_snippet_list = shops_file.readlines()
     for shop_snippet in shop_snippet_list:
         shop = shop_snippet.split(' ')
@@ -26,7 +30,8 @@ def findShop(od):
             return sp    
     shops_file.close()
 
-orders_file = open("orders.txt", "r")
+file_to_open = data_folder / "customer/orders.txt"
+orders_file = open(file_to_open, "r")
 order_snippet_list = orders_file.readlines()
 for order_snippet in order_snippet_list:
     order = order_snippet.split(' ')
@@ -51,9 +56,9 @@ while ptr:
     if ch == 'Y':
         order_id = input("Enter the order id : ")
         itm_name = input("Enter the item name : ")
-        orders_file = open("orders.txt", "r")
+        orders_file = open(file_to_open, "r")
         order_snippet_list = orders_file.readlines()
-        with open("orders.txt", "w") as orders_file:
+        with open(file_to_open, "w") as orders_file:
             for order_snippet in order_snippet_list:
                 order = order_snippet.split(' ')
                 if order[0] == order_id and order[1] == itm_name:
