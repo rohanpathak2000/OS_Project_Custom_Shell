@@ -1,5 +1,6 @@
 import sys
 from pathlib import Path
+from prettytable import PrettyTable
 
 data_folder = Path("E:\Win2020-21\OS\Project")
 currUser = sys.argv[1]
@@ -30,24 +31,49 @@ def findShop(od):
             return sp    
     shops_file.close()
 
+
+table = PrettyTable(['Order id', 'Name', 'Qty', 'Cost', 'Status', 'Transporter', 'Shop'])
+
+found = False
 file_to_open = data_folder / "customer/orders.txt"
 orders_file = open(file_to_open, "r")
 order_snippet_list = orders_file.readlines()
 for order_snippet in order_snippet_list:
     order = order_snippet.split(' ')
+    transp_avl = False
+    row = []
     if order[-1] == currUser + "\n" and order[4] != "in_cart":
+        found = True
         for od in order:
             if od != currUser + "\n":
                 if "sp" in od:
                     shop_name = findShop(od)
-                    print(shop_name,end="")                
+                    row.append(shop_name)
+                    #print(shop_name,end="")                
                 elif "tp" in od:
+                    transp_avl = True
                     trans_name = findTrans(od)
-                    print(trans_name + " ",end="")
+                    row.append(trans_name)
+                    #print(trans_name + " ",end="")
+                elif od == "return_p":
+                    status = "Requested for Return"
+                    row.append(status)
                 else:
-                    print(od + " ",end="")
-if order[-1] == currUser + "\n":
-    print("")
+                    row.append(od)
+                    #print(od + " ",end="")
+        if transp_avl == False:
+            shp = row[-1]
+            row[-1] = 'NA'
+            row.append(shp)
+        table.add_row(row)
+
+if found:
+    print(table)
+else:
+    print("!!!! No orders found in history !!!!")
+
+#if order[-1] == currUser + "\n":
+ #   print("")
 
 ptr = 1
 while ptr:

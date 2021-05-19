@@ -1,5 +1,6 @@
 from cmd import Cmd
 import os
+from prettytable import PrettyTable
 
 def login():
     global currUser
@@ -12,9 +13,9 @@ def login():
     for user_snippet in user_snippet_list:
         user = user_snippet.split(' ')
         if user[0] == uname:
-            print(user[0])
+            #print(user[0])
             if user[3] == pwd:
-                print(user[3])
+                #print(user[3])
                 currUser = uname
                 flag = 1
                 break
@@ -77,15 +78,33 @@ def issue_order(item, qty, order_id):
 currUser = " "
 session = 0
 
+print("\n             ************* Welcome to the customer portal *************                \n")
+print("Type 'help' in order to look at the commands for navigating the portal easily")
+print("\n--------------------------------------------------------------------------------")
+
+table = PrettyTable(['Item id','Name','Category','Rate','Available Qty'])
+
 class MyPrompt(Cmd):
     def do_exit(self, inp):
-        print("Bye")
+        print(" !!!!!!!  Visit Us Again Soon !!!!!!!")
         return True
         
+    def do_help(self, inp):
+        print("\nList of commands\n----------------")
+        print("1.login - To login if you already have an account\n2.register - If you are new and wish to create a new account")
+        print("3.items - To view all the items available in the different shops\n4.lookup - To search for a particular item")
+        print("4.addtocart - To add items in your cart\n6.delfromcart - To delete items from your cart")
+        print("5.cart - View the items in your cart\n6.order - To place the order for the items in the cart\n7.profile - To view or update your profile")
+        print("6.orderHistory - View your order history\n")
+        
+        
+ 
     def do_login(self, inp):
         global session
         session = login()
-            
+        if session == 0:
+            print("Username or Password is incorrect")
+  
     def do_register(self, inp):
         global session
         session = register()
@@ -94,7 +113,11 @@ class MyPrompt(Cmd):
             items_file = open("items.txt","r")
             item_snippet_list = items_file.readlines()
             for item_snippet in item_snippet_list:
-                print(item_snippet,end='')
+                item = item_snippet.split(' ')
+                item[-1] = item[-1][:-1]
+                table.add_row(item)
+            print(table)
+                
     
     def do_lookup(self, inp):
             print("Lookup by \n1. Category Name\n2. Item name")
@@ -106,14 +129,21 @@ class MyPrompt(Cmd):
                 for item_snippet in item_snippet_list:
                     item = item_snippet.split(' ')
                     if item[2] == cat_name:
-                        print(item_snippet)
+                        item[-1] = item[-1][:-1]
+                        table.add_row(item)
+                print(table)    
+                        
             elif c == '2':
                 items_file = open("items.txt","r")
                 itm_name = input("Enter name : ")
                 for item_snippet in item_snippet_list:
                     item = item_snippet.split(' ')
                     if item[1] == itm_name:
-                        print(item_snippet)
+                        item[-1] = item[-1][:-1]
+                        table.add_row(item)
+                print(table)
+                        
+                        
                         
     def do_addtocart(self, inp):
         if session == 1:
@@ -164,52 +194,9 @@ class MyPrompt(Cmd):
         else:
             print("Register or login first !!!!!\nRefer help for commands to login or register") 
         
+    def do_logout(self, inp):
+        global session
+        session = 0
         
-        
-    def do_shopkeeper(self, inp):
-        print("enter your shop id")
-        shop_id=input()
-
-        if(shop_id=="sp_1"):
-                with open('orders.txt', 'r') as items_file:
-                        items = items_file.readlines()
-                        for item in items:
-                                print(item)
-                print("				")
-                print("Enter the Id of Order to be dispatched ")
-                item_id = input()
-                with open('orders.txt', 'w') as mater_file:
-                        for item in items:
-                                item_content = item.split(" ")
-                                if str(item_content[0]) == item_id  and item_content[5]=="sp_1":
-                                        with open('transp.txt','a') as tp_file:
-                                                item_content[4]="arriving tp_7"
-                                                join=" ".join(item_content)
-                                                tp_file.write(join)
-                                                mater_file.write(join)
-                                        continue
-                                mater_file.write(item)
-
-        elif(shop_id=="sp_2"):
-                with open('orders.txt', 'r') as items_file:
-                        items = items_file.readlines()
-                        for item in items:
-                                print(item)
-                print("				")
-                print("Enter the Id of Order to be dispatched ")
-                item_id = input()
-                with open('orders.txt', 'w') as mater_file:
-                        for item in items:
-                                item_content = item.split(" ")
-                                if str(item_content[0]) == item_id  and item_content[5]=="sp_2":                                
-                                        with open('transp2.txt','a') as tp_file:
-                                                item_content[4]="arriving tp_8"
-                                                join=" ".join(item_content)
-                                                tp_file.write(join)
-                                                mater_file.write(join)
-                                        continue
-                                mater_file.write(item)
-
-    
 MyPrompt().cmdloop()
 print("After")

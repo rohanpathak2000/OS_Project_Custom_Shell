@@ -58,20 +58,19 @@ while ongoing_order:
                 item_qty = int(input("Enter the qty of purchase : "))
                 if int(item[3]) >= item_qty:
                     issue_order(item, item_qty, order_id)
-                    item[3] = int(item[3]) - item_qty
-                    item[3] = str(item[3])
+                    item[3] = str(int(item[3]) - item_qty)
                     order_success = True
                     updated_item_detail_snippet = " ".join(item)
                     items_file.write(updated_item_detail_snippet)
                     continue      
             items_file.write(item_detail_snippet)    
         if order_success:
-            print("Item Added !!")
+            print("Item Added to Cart !!")
         else:
             if item_found == False:
                 print("Item Not Found !!")
             else:
                 print("Stock Unavailable !!")
-        ch = input("Would you like to order more items [Y/N] : ")
-        if ch=='N':
+        ch = input("Would you like to order more items [Y/N] ? : ")
+        if ch=='N' or ch=='n':
             ongoing_order = False

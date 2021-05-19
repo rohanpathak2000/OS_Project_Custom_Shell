@@ -1,9 +1,11 @@
 import sys
 from pathlib import Path
+from prettytable import PrettyTable
 
 data_folder = Path("E:\Win2020-21\OS\Project")
 currUser = sys.argv[1]
 
+table = PrettyTable(['Order id','Name','Qty','Cost','Shop'])
 def findTrans(od):
     file_to_open = data_folder / "transporter/transporters.txt"
     trans_file = open(file_to_open,"r")
@@ -39,18 +41,22 @@ orders_file = open(file_to_open,"r")
 order_snippet_list = orders_file.readlines()
 if len(order_snippet_list)>0:
     for order_snippet in order_snippet_list:
+        row = []
         order = order_snippet.split(' ')
         if order[4] == "in_cart" and order[6] == currUser+"\n":
             for od in order:
                 if od != "in_cart" and od != currUser+"\n":
                     if "sp" in od:
                         shop_name = findShop(od)
-                        print(shop_name + " ",end="")
+                        row.append(shop_name)
+                        #print(shop_name + " ",end="")
                     elif "tp" in od:
                         trans_name = findTrans(od)
-                        print(trans_name + " ",end="")
-                    else:                                
-                        print(od + " ",end="")
-            print("\n")
+                        row.append(trans_name)
+                        #print(trans_name + " ",end="")
+                    else:
+                        row.append(od)
+                        #print(od + " ",end="")
+            table.add_row(row)
             
-            
+    print(table)        
