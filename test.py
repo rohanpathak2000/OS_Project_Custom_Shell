@@ -136,6 +136,7 @@ class MyPrompt(Cmd):
             elif c == '2':
                 items_file = open("items.txt","r")
                 itm_name = input("Enter name : ")
+                item_snippet_list = items_file.readlines()
                 for item_snippet in item_snippet_list:
                     item = item_snippet.split(' ')
                     if item[1] == itm_name:
@@ -147,7 +148,7 @@ class MyPrompt(Cmd):
                         
     def do_addtocart(self, inp):
         if session == 1:
-            cmnd = "python ./customer/add_to_cart.py " + currUser    
+            cmnd = "python ./customer/add_to_cart.py " + currUser   
             os.system(cmnd)
         else:
             print("Register or Login first !!!!\nRefer help for commands to login or register")
