@@ -8,3 +8,5 @@
 8 ghee dairy 50 100
 9 cream dairy 70 40
 10 curd dairy 40 50
+11 grapes fruits 25 10
+12 lichi fruits 20 100
