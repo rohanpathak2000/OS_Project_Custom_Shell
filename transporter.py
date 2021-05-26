@@ -32,7 +32,7 @@ def register():
     flag = 1
     global currUser
     global session
-    users_file = open("./shopkeeper/shopkeeper.txt","r")
+    users_file = open("./transporter/transporters.txt","r")
     user_snippet_list = users_file.readlines()
     uname = input(" Enter username : ")
     fname = input(" Enter first name : ")
@@ -53,12 +53,12 @@ def register():
             else:
                 return 0
         else:
-            with open("./shopkeeper/shopkeeper.txt","a") as users_file:
+            with open("./transporter/transporters.txt","a") as users_file:
                 users_file.write(new_user)
                 currUser = uname
                 return 1
     else:
-        with open("./shopkeeper/shopkeeper.txt","a") as users_file:
+        with open("./transporter/transporters.txt","a") as users_file:
             users_file.write(new_user)
             currUser = uname
             return 1

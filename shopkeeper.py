@@ -74,28 +74,23 @@ class MyPrompt(Cmd):
         global session
         session = register()
 
-    def do_lookup(self, inp):
+    def do_viewitem(self, inp):
             print("Lookup by \n1. Category Name\n2. Item name")
-            c = input("Enter Choice : ")
-            if c == '1':
+            if currUser == 'sp_1' and session==1:
                 items_file = open("items.txt","r")
-                cat_name = input("Enter name : ")
                 item_snippet_list = items_file.readlines()
                 for item_snippet in item_snippet_list:
                     item = item_snippet.split(' ')
-                    if item[2] == cat_name:
-                        item[-1] = item[-1][:-1]
+                    if item[2]=="fruits":
                         table.add_row(item)
                 print(table)
 
-            elif c == '2':
+            elif currUser == 'sp_2' and session==1:
                 items_file = open("items.txt","r")
-                itm_name = input("Enter name : ")
                 item_snippet_list = items_file.readlines()
                 for item_snippet in item_snippet_list:
                     item = item_snippet.split(' ')
-                    if item[1] == itm_name:
-                        item[-1] = item[-1][:-1]
+                    if item[2]=="dairy":
                         table.add_row(item)
                 print(table)
 
@@ -123,7 +118,7 @@ def do_ordercancel(self, inp):
 def do_help(self, inp):
         print("\nList of commands\n----------------")
         print("1.login - To login if you already have an account\n2.register - If you are new and wish to create a new account")
-        print("3.additem - To add a particular item in your shop\n4.lookup - To search for a particular item")
+        print("3.additem - To add a particular item in your shop\n4.viewitem - To view the items in your cart")
         print("4.itemdispatch - To dispatch the items ordered by the customer")
         print("5.ordercancel - To cancel the dispatch any particular item")
         print("6.orderHistory - View your order history\n")
@@ -133,4 +128,4 @@ def do_logout(self, inp):
         session = 0
 
 MyPrompt().cmdloop()
-print("leaving so early??? :(")
+print("well done")
