@@ -3,10 +3,6 @@ from cmd import Cmd
 import os
 from prettytable import PrettyTable
 
-class MyPrompt(Cmd):
-    def do_exit(self, inp):
-        print("bye")
-        return True
 
 def login():
     global currUser
@@ -64,6 +60,7 @@ def register():
             return 1
 
 table = PrettyTable(['Item id','Name','Category','Rate','Available Qty'])
+
 class MyPrompt(Cmd):
     def do_exit(self, inp):
         print(" !!!!!!!  Visit Us Again Soon !!!!!!!")
@@ -104,28 +101,28 @@ class MyPrompt(Cmd):
                         table.add_row(item)
                 print(table)
 
-def do_additem(self, inp):
+    def do_additem(self, inp):
         if session == 1:
             cmnd = "python ./shopkeeper/add_item.py "
             os.system(cmnd)
         else:
             print("Register or Login first !!!!\nRefer help for commands to login or register")
 
-def do_itemdispatch(self, inp):
+    def do_itemdispatch(self, inp):
         if session == 1:
             cmnd = "python ./shopkeeper/item_dispatch.py "
             os.system(cmnd)
         else:
             print("Register or Login first !!!!\nRefer help for commands to login or register")
 
-def do_ordercancel(self, inp):
+    def do_ordercancel(self, inp):
         if session == 1:
             cmnd = "python ./shopkeeper/order_cancelled.py "
             os.system(cmnd)
         else:
             print("Register or Login first !!!!\nRefer help for commands to login or register")       
 
-def do_help(self, inp):
+    def do_help(self, inp):
         print("\nList of commands\n----------------")
         print("1.login - To login if you already have an account\n2.register - If you are new and wish to create a new account")
         print("3.additem - To add a particular item in your shop\n4.lookup - To search for a particular item")
@@ -133,7 +130,7 @@ def do_help(self, inp):
         print("5.ordercancel - To cancel the dispatch any particular item")
         print("6.orderHistory - View your order history\n")
 
-def do_logout(self, inp):
+    def do_logout(self, inp):
         global session
         session = 0
 
