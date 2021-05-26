@@ -1,3 +1,2 @@
 sp_1  Utkarsh Yadav  1234  fruits
 sp_2  Rohan Pathak  2345  dairy
-sp_3  Sahil Faizal  1234  electronics
