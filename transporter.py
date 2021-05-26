@@ -33,7 +33,7 @@ def register():
     fname = input(" Enter first name : ")
     lname = input(" Enter last name : ")
     pwd = input(" Enter password : ")
-    new_user = uname + "  " + fname + " " + lname + "  " + pwd + "  " + "free" + "\n"
+    new_user = uname + "  " + fname + " " + lname + "  " + pwd + "  " + "\n"
     if len(user_snippet_list) > 0:
         for user_snippet in user_snippet_list:
           user = user_snippet.split('  ')
@@ -96,7 +96,7 @@ class MyPrompt(Cmd):
         else:
             print("Register or Login first !!!!\nRefer help for commands to login or register")
 
-    def do_itemdsp(self, inp):
+    def do_retnpc(self, inp):
         if session == 1:
             cmnd = "python ./transporter/return_pickup.py " + currUser
             os.system(cmnd)
@@ -106,13 +106,12 @@ class MyPrompt(Cmd):
     def do_help(self, inp):
         print("\nList of commands\n----------------")
         print("1.login - To login if you already have an account\n2.register - If you are new and wish to create a new account")
-        print("3.additem - To add a particular item in your shop\n4.viewitem - To view the items in your cart")
-        print("4.itemdispatch - To dispatch the items ordered by the customer")
-        print("5.ordercancel - To cancel the dispatch any particular item")
+        print("3.dvcnf - To Too confirm a delivery\n4.viewitem - To view the items that have been assigned to you")
+        print("5.retnpc - To pickup the returned goods")
 
     def do_logout(self, inp):
         global session
         session = 0
 
 MyPrompt().cmdloop()
-print("well done")
+print("How was the experience?")

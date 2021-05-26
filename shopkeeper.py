@@ -119,12 +119,12 @@ class MyPrompt(Cmd):
         print("\nList of commands\n----------------")
         print("1.login - To login if you already have an account\n2.register - If you are new and wish to create a new account")
         print("3.additem - To add a particular item in your shop\n4.viewitem - To view the items in your cart")
-        print("4.itemdispatch - To dispatch the items ordered by the customer")
-        print("5.ordercancel - To cancel the dispatch any particular item")
+        print("5.itemdispatch - To dispatch the items ordered by the customer")
+        print("6.ordercancel - To cancel the dispatch any particular item")
 
     def do_logout(self, inp):
         global session
         session = 0
 
 MyPrompt().cmdloop()
-print("well done")
+print("How was the experience?")

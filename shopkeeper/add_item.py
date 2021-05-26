@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 
-data_folder = Path("E:\Win2020-21\OS\Project")
+data_folder = Path(r"C:\Users\utkar\Documents\GitHub\OS_Project_Custom_Shell")
 
 currUser = sys.argv[1]
 
