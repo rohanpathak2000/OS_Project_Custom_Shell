@@ -3,7 +3,7 @@ from pathlib import Path
 
 from prettytable import PrettyTable
 
-data_folder = Path(r"C:\Users\utkar\Documents\GitHub\OS_Project_Custom_Shell")
+data_folder = Path("E:\Win2020-21\OS\Project")
 
 currUser = sys.argv[1]
 
