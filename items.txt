@@ -12,3 +12,4 @@
 12 lichi fruits 20 100
 13 plum fruits 44 23
 14 cheese dairy 25 15
+15 fan electronics 3550 12
