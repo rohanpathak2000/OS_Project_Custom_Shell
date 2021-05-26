@@ -3,11 +3,16 @@ from cmd import Cmd
 import os
 from prettytable import PrettyTable
 
+class MyPrompt(Cmd):
+    def do_exit(self, inp):
+        print("bye")
+        return True
+
 def login():
     global currUser
     global session
     flag = 0
-    user_file = open("./shopkeeper/shopkeeper.txt", "r")
+    user_file = open("./transporter/transporters.txt", "r")
     user_snippet_list = user_file.readlines()
     uname = input(" Username : ")
     pwd = input(" Password : ")
