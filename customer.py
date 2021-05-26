@@ -78,9 +78,9 @@ def issue_order(item, qty, order_id):
 currUser = " "
 session = 0
 
-print("\n             ************* Welcome to the customer portal *************                \n")
-print("Type 'help' in order to look at the commands for navigating the portal easily")
-print("\n--------------------------------------------------------------------------------")
+print("\n             ************* Welcome to our customer portal *************                \n")
+print("         Type 'help' in order to look at the commands for navigating the portal easily           ")
+print("\n-----------------------------------------------------------------------------------------------")
 
 table = PrettyTable(['Item id','Name','Category','Rate','Available Qty'])
 
@@ -200,4 +200,3 @@ class MyPrompt(Cmd):
         session = 0
         
 MyPrompt().cmdloop()
-print("After")

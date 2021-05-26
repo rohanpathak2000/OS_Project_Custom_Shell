@@ -77,7 +77,7 @@ else:
 
 ptr = 1
 while ptr:
-    ch = input("Do you wish to delete any order from history ? [Y/N] ")
+    ch = input("Do you wish to delete any order from history ? [Y/N] : ")
     flag = 1
     if ch == 'Y':
         order_id = input("Enter the order id : ")

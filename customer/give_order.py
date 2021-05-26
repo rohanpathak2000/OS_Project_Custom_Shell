@@ -22,11 +22,11 @@ def confirm_order():
                         continue
                     orders_file.write(order_snippet)
             if ptr == 0:
-                print(" Nothing in cart ")
+                print(" Cart is Empty !!! ")
             else:
-                print("Order Placed Successfully !!")
+                print("Order Placed Successfully !!!")
     else:                    
-        print("Nothing in cart ...")  
+        print(" Cart is Empty !!!")  
 
 def findTrans(od):
     file_to_open = data_folder / "transporter/transporters.txt"

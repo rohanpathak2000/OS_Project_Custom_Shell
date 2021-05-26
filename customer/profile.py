@@ -12,7 +12,7 @@ for user_snippet in user_snippet_list:
     if user[0] == currUser:
       print("Username : " + currUser + "\nName : " + user[1] + " " + user[2] + "\nAddress : " + " ".join(user[4:]))
 
-choice = input("Do you wish to edit your details [Y/N] ?" )
+choice = input("Do you wish to edit your details [Y/N] ? : " )
 if choice == 'Y':
     print("1. Change Password ")
     print("2. Change Address ")

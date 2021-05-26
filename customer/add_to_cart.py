@@ -14,9 +14,9 @@ def issue_order(item, qty, order_id):
     total_price = int(item[4]) * qty
     order.append(str(total_price))
     order.append("in_cart")
-    if int(item[0])>=1 and int(item[0])<=5:
+    if item[2] == "fruits":
         order.append("sp_1")
-    elif int(item[0])>=6 and int(item[0])<=10:
+    elif item[2]=="dairy":
         order.append("sp_2")
     order.append(currUser+"\n")
     order = " ".join(order)
@@ -71,6 +71,6 @@ while ongoing_order:
                 print("Item Not Found !!")
             else:
                 print("Stock Unavailable !!")
-        ch = input("Would you like to order more items [Y/N] ? : ")
+        ch = input("Would you like to add more items [Y/N] ? : ")
         if ch=='N' or ch=='n':
             ongoing_order = False
