@@ -33,10 +33,11 @@ def register():
     fname = input(" Enter first name : ")
     lname = input(" Enter last name : ")
     pwd = input(" Enter password : ")
-    new_user = uname + " " + fname + " " + lname + " " + pwd + "\n"
+    category = input(" Enter your shop category : ")
+    new_user = uname + "  " + fname + "  " + lname + "  " + pwd + "  " + category + "\n"
     if len(user_snippet_list) > 0:
         for user_snippet in user_snippet_list:
-          user = user_snippet.split(' ')
+          user = user_snippet.split('  ')
           if user[0] == uname:
             flag = 0
             break
