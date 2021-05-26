@@ -77,8 +77,8 @@ currUser = " "
 session = 0
 
 print("\n             ************* Welcome to our customer portal *************                \n")
-print("         Type 'help' in order to look at the commands for navigating the portal easily           ")
-print("\n-----------------------------------------------------------------------------------------------")
+print("         Type 'help' in order to look at the commands for navigating the portal            ")
+print("\n-------------------------------------------------------------------------------")
 
 table = PrettyTable(['Item id','Name','Category','Rate','Available Qty'])
 
@@ -102,10 +102,14 @@ class MyPrompt(Cmd):
         session = login()
         if session == 0:
             print("Username or Password is incorrect")
+        else:
+            print("Logged in !!!")
   
     def do_register(self, inp):
         global session
         session = register()
+        if session == 1:
+            print("Successfully Registered !!!")
         
     def do_items(self, inp):
             items_file = open("items.txt","r")

@@ -63,7 +63,7 @@ table = PrettyTable(['Item id','Name','Category','Rate','Available Qty'])
 
 class MyPrompt(Cmd):
     def do_exit(self, inp):
-        print(" !!!!!!!  Visit Us Again Soon !!!!!!!")
+        print(" Exiting .....")
         return True
 
     def do_login(self, inp):
@@ -135,4 +135,3 @@ class MyPrompt(Cmd):
         session = 0
 
 MyPrompt().cmdloop()
-print("leaving so early??? :(")
