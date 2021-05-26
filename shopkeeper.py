@@ -12,10 +12,10 @@ def login():
     uname = input(" Username : ")
     pwd = input(" Password : ")
     for user_snippet in user_snippet_list:
-        user = user_snippet.split(' ')
+        user = user_snippet.split('  ')
         if user[0] == uname:
             #print(user[0])
-            if user[3] == pwd:
+            if user[2] == pwd:
                 currUser=uname
                 print("Redirecting...")
                 flag = 1
@@ -34,7 +34,7 @@ def register():
     lname = input(" Enter last name : ")
     pwd = input(" Enter password : ")
     category = input(" Enter your shop category : ")
-    new_user = uname + "  " + fname + "  " + lname + "  " + pwd + "  " + category + "\n"
+    new_user = uname + "  " + fname + " " + lname + "  " + pwd + "  " + category + "\n"
     if len(user_snippet_list) > 0:
         for user_snippet in user_snippet_list:
           user = user_snippet.split('  ')
@@ -77,41 +77,41 @@ class MyPrompt(Cmd):
         session = register()
 
     def do_viewitem(self, inp):
-            if currUser == 'utk' and session==1:
-                items_file = open("items.txt","r")
+            if session==1:
+                items_file = open("./shopkeeper/shopkeeper.txt","r")
                 item_snippet_list = items_file.readlines()
                 for item_snippet in item_snippet_list:
-                    item = item_snippet.split(' ')
-                    if item[2]=="fruits":
-                        table.add_row(item)
-                print(table)
-
-            elif currUser == 'sp_2' and session==1:
-                items_file = open("items.txt","r")
-                item_snippet_list = items_file.readlines()
-                for item_snippet in item_snippet_list:
-                    item = item_snippet.split(' ')
-                    if item[2]=="dairy":
-                        table.add_row(item)
+                    item = item_snippet.split('  ')
+                    if(item[0]==currUser):
+                        val=item[3]
+                        break
+                temp=open("items.txt","r")
+                temp_line=temp.readlines()
+                for tem in temp_line:
+                    bem=tem.split(' ')
+                    print(bem)
+                    print(val[:-1])
+                    if val==(bem[2]+"\n"):
+                        table.add_row(bem)
                 print(table)
 
     def do_additem(self, inp):
         if session == 1:
-            cmnd = "python ./shopkeeper/add_item.py "
+            cmnd = "python ./shopkeeper/add_item.py " + currUser
             os.system(cmnd)
         else:
             print("Register or Login first !!!!\nRefer help for commands to login or register")
 
     def do_itemdispatch(self, inp):
         if session == 1:
-            cmnd = "python ./shopkeeper/item_dispatch.py "
+            cmnd = "python ./shopkeeper/item_dispatch.py " + currUser
             os.system(cmnd)
         else:
             print("Register or Login first !!!!\nRefer help for commands to login or register")
 
     def do_ordercancel(self, inp):
         if session == 1:
-            cmnd = "python ./shopkeeper/order_cancelled.py "
+            cmnd = "python ./shopkeeper/order_cancelled.py " + currUser
             os.system(cmnd)
         else:
             print("Register or Login first !!!!\nRefer help for commands to login or register")       

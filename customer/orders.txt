@@ -4,11 +4,11 @@ od_5 paneer 20 1000 pending sp_2 sahil
 od_6 butter 20 1400 cancelled sp_2 utk
 od_7 banana 20 1000 return_p tp_7 sp_1 utk
 od_7 orange 10 200 return_p tp_7 sp_1 utk
-od_8 muskmelon 2 100 in_cart sp_1 sahil
-od_8 orange 5 100 delivered tp_7 sp_1 sahil
+od_8 muskmelon 2 100 pending sp_1 sahil
+od_8 orange 5 100 cancelled sp_1 sahil
 od_9 paneer 5 250 pending sp_2 utk
-od_10 muskmelon 5 250 pending sp_1 utk
-od_12 ghee 50 5000 pending sp_2 utk
-od_12 curd 20 1000 pending sp_2 utk
-od_13 apple 10 500 pending sp_1 utk
+od_10 muskmelon 5 250 arriving tp_7 sp_1 utk
+od_12 ghee 50 5000 arriving tp_7 sp_2 utk
+od_12 curd 20 1000 arriving tp_7 sp_2 utk
+od_13 apple 10 500 cancelled sp_1 utk
 od_14 cream 10 400 pending sp_2 utk
