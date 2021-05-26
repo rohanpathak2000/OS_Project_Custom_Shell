@@ -40,10 +40,12 @@ file_to_open = data_folder / "customer/orders.txt"
 orders_file = open(file_to_open,"r")
 order_snippet_list = orders_file.readlines()
 if len(order_snippet_list)>0:
+    ptr = 0
     for order_snippet in order_snippet_list:
         row = []
         order = order_snippet.split(' ')
         if order[4] == "in_cart" and order[6] == currUser+"\n":
+            ptr = 1
             for od in order:
                 if od != "in_cart" and od != currUser+"\n":
                     if "sp" in od:
@@ -58,5 +60,9 @@ if len(order_snippet_list)>0:
                         row.append(od)
                         #print(od + " ",end="")
             table.add_row(row)
-            
-    print(table)        
+    if ptr == 1:        
+        print(table) 
+    else:
+        print("Cart is empty !!!!")
+else:
+    print("Cart is empty !!!!")       

@@ -76,8 +76,7 @@ class MyPrompt(Cmd):
         session = register()
 
     def do_viewitem(self, inp):
-            print("Lookup by \n1. Category Name\n2. Item name")
-            if currUser == 'sp_1' and session==1:
+            if currUser == 'utk' and session==1:
                 items_file = open("items.txt","r")
                 item_snippet_list = items_file.readlines()
                 for item_snippet in item_snippet_list:
