@@ -11,5 +11,13 @@ read ch
 
 if [ $ch -eq 1 ] 
 then
-	python customer.py
+	start python customer.py
+elif [ $ch -eq 2 ]
+then
+	start python transporter.py
+elif [ $ch -eq 3 ]
+then
+	start python shopkeeper.py
+
 fi 
+

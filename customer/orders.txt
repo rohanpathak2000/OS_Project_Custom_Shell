@@ -1,8 +1,8 @@
 od_1 apple 10 500 arriving tp_7 sp_1 utk
 od_5 paneer 20 1000 pending sp_2 sahil
 od_6 butter 20 1400 cancelled sp_2 utk
-od_7 banana 20 1000 return_p tp_7 sp_1 utk
-od_7 orange 10 200 return_p tp_7 sp_1 utk
+od_7 banana 20 1000 returned tp_7 sp_1 utk
+od_7 orange 10 200 returned tp_7 sp_1 utk
 od_8 muskmelon 2 100 arriving tp_7 sp_1 sahil
 od_8 orange 5 100 arriving tp_7 sp_1 sahil
 od_9 paneer 5 250 pending sp_2 utk
