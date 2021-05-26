@@ -89,10 +89,10 @@ class MyPrompt(Cmd):
                 temp_line=temp.readlines()
                 for tem in temp_line:
                     bem=tem.split(' ')
-                    print(val[:-1])
                     if val==(bem[2]+"\n"):
                         table.add_row(bem)
                 print(table)
+                table.clear_rows()
 
     def do_additem(self, inp):
         if session == 1:

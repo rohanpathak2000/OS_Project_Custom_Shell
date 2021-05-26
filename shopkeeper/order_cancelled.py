@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 
-data_folder = Path(r"C:\Users\utkar\Documents\GitHub\OS_Project_Custom_Shell")
+data_folder = Path("E:\Win2020-21\OS\Project")
 currUser = sys.argv[1]
 
 from prettytable import PrettyTable
@@ -41,4 +41,4 @@ with open(curr_dir, 'w') as mater_file:
                                 mater_file.write(join)
                         continue
                 mater_file.write(item)
-
+table.clear_rows()

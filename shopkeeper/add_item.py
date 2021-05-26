@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 
-data_folder = Path(r"C:\Users\utkar\Documents\GitHub\OS_Project_Custom_Shell")
+data_folder = Path("E:\Win2020-21\OS\Project")
 
 currUser = sys.argv[1]
 
@@ -30,3 +30,4 @@ temp[4]=str(item_qty+"\n")
 with open(curr_dir, 'a') as mater_file:
         join=" ".join(temp)
         mater_file.write(join)
+

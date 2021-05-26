@@ -15,6 +15,7 @@ item_snippet_list = items_file.readlines()
 for item_snippet in item_snippet_list:
     item = item_snippet.split(' ')
     if item[-3]==currUser and item[4]=="return_p":
+        flg = True
         for i in range(0,4):
             row[i]=item[i]
         row[-1]=item[-2]
@@ -34,3 +35,5 @@ with open(curr_dir,'w') as dlvd_file:
             dlvd_file.write(join)
             continue
         dlvd_file.write(dlvd)
+
+table.clear_rows()

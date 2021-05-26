@@ -13,18 +13,14 @@ def findTrans(od):
     trans_file = open(file_to_open,"r")
     trans_snippet_list = trans_file.readlines()
     for trans_snippet in trans_snippet_list:
-        trans = trans_snippet.split(' ')
+        trans = trans_snippet.split('  ')
         if trans[0] == od:
-            trans = trans[1:]
-            last_name = trans[-1]
-            last_name = last_name[:-1]
-            trans[-1] = last_name
-            tr = " ".join(trans)
+            tr = trans[1]
             return tr
     trans_file.close()
 
 def findShop(od):
-    file_to_open = data_folder / "shopkeeper/shopkeepers.txt"
+    file_to_open = data_folder / "shopkeeper/shopkeeper.txt"
     shops_file = open(file_to_open,"r")
     shop_snippet_list = shops_file.readlines()
     for shop_snippet in shop_snippet_list:
@@ -57,7 +53,7 @@ for order_snippet in order_snippet_list:
                 else:
                     row.append(od)
                     #print(od + " ",end="")
-        table.row_add(row)
+        table.add_row(row)
 print()
 if found:
     print(table)

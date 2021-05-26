@@ -96,7 +96,14 @@ class MyPrompt(Cmd):
         print("6.orderHistory - View your order history\n")
         
         
- 
+    def do_returnItem(self,inp):
+        if session == 1:
+            cmnd = "python ./customer/item_return.py " + currUser   
+            os.system(cmnd)
+        else:
+            print("Register or Login first !!!!\nRefer help for commands to login or register")
+
+
     def do_login(self, inp):
         global session
         session = login()
@@ -146,7 +153,8 @@ class MyPrompt(Cmd):
                         item[-1] = item[-1][:-1]
                         table.add_row(item)
                 print(table)
-                table.clear_rows()
+            
+            table.clear_rows()
                         
                         
                         

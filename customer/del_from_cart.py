@@ -4,7 +4,7 @@ data_folder = Path("E:\Win2020-21\OS\Project")
 
 def updateInItems(item_to_update, qty_to_add):
     file_to_open = data_folder / "items.txt"
-    items_file = open("file_to_open", "r")
+    items_file = open(file_to_open, "r")
     item_snippet_list = items_file.readlines()
     with open(file_to_open,"w") as items_file:
         for item_snippet in item_snippet_list:

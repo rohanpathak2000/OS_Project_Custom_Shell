@@ -6,10 +6,11 @@
 6 paneer dairy 15 50
 7 butter dairy 50 70
 8 ghee dairy 50 100
-9 cream dairy 70 40
+9 cream dairy 40 40
 10 curd dairy 40 50
 11 grapes fruits 25 10
 12 lichi fruits 20 100
 13 plum fruits 44 23
 14 cheese dairy 25 15
-15 fan electronics 3550 12
+15 fan electronics 100 30000
+16 kiwi fruits 10 120

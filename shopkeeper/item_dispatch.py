@@ -2,7 +2,7 @@ import sys
 from pathlib import Path
 
 from prettytable import PrettyTable
-data_folder = Path(r"C:\Users\utkar\Documents\GitHub\OS_Project_Custom_Shell")
+data_folder = Path("E:\Win2020-21\OS\Project")
 
 currUser = sys.argv[1]
 
@@ -16,7 +16,6 @@ with open(curr_dir, 'r') as items_file:
                 if(item.split(' ')[-2]==currUser and item.split(' ')[4]=="pending"):
                         bitem=item.split(' ')
                         length=len(bitem)
-                        print(length)
                         if(length==7):
                                 row[0]=bitem[0]
                                 row[1]=bitem[1]
@@ -35,10 +34,10 @@ with open(curr_dir, 'w') as mater_file:
                 if str(item_content[0]) == item_id  and item_content[-2]==currUser:
                         new_dir = data_folder / "transporter/transp.txt"
                         with open(new_dir,'a') as tp_file:
-
                                 item_content[4]="arriving tp_7"
                                 join=" ".join(item_content)
                                 tp_file.write(join)
                                 mater_file.write(join)
                         continue
                 mater_file.write(item)
+table.clear_rows()
