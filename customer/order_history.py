@@ -69,13 +69,14 @@ for order_snippet in order_snippet_list:
 
 if found:
     print(table)
+    ptr = 1
 else:
     print("!!!! No orders found in history !!!!")
+    ptr = 0
 
 #if order[-1] == currUser + "\n":
  #   print("")
 
-ptr = 1
 while ptr:
     ch = input("Do you wish to delete any order from history ? [Y/N] : ")
     flag = 1
@@ -88,13 +89,13 @@ while ptr:
             for order_snippet in order_snippet_list:
                 order = order_snippet.split(' ')
                 if order[0] == order_id and order[1] == itm_name:
-                    if order[4] == "delivered":
+                    if order[4] == "delivered" or order[4] == "cancelled":
                         continue
                     else:
                         flag=0
                 orders_file.write(order_snippet)
             if flag == 0:
-                print("The order could not be deleted from history as it is not delivered yet ")
+                print("The order could not be deleted from history !!! ")
             else:
                 print("Order deleted from the history successfully !!!")
     elif ch == 'N':

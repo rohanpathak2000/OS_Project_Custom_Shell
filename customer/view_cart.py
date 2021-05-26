@@ -35,7 +35,6 @@ def findShop(od):
 
 
 
-print(" ----- Cart Items ----")
 file_to_open = data_folder / "customer/orders.txt"
 orders_file = open(file_to_open,"r")
 order_snippet_list = orders_file.readlines()
