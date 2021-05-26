@@ -148,7 +148,7 @@ class MyPrompt(Cmd):
                         
     def do_addtocart(self, inp):
         if session == 1:
-            cmnd = "python ./customer/add_to_cart.py " + currUser    
+            cmnd = "python ./customer/add_to_cart.py " + currUser   
             os.system(cmnd)
         else:
             print("Register or Login first !!!!\nRefer help for commands to login or register")
