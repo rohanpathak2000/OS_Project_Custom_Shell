@@ -11,5 +11,5 @@ read ch
 
 if [ $ch -eq 1 ] 
 then
-	python test.py
+	python customer.py
 fi 

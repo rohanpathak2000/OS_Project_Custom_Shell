@@ -12,9 +12,7 @@ def login():
     pwd = input(" Password : ")
     for user_snippet in user_snippet_list:
         user = user_snippet.split(' ')
-        if user[0] == uname:
-            #print(user[0])
-            if user[3] == pwd:
+        if user[0] == uname and user[3] == pwd:
                 #print(user[3])
                 currUser = uname
                 flag = 1
@@ -65,9 +63,9 @@ def issue_order(item, qty, order_id):
     total_price = int(item[4]) * qty
     order.append(str(total_price))
     order.append("in_cart")
-    if int(item[0])>=1 and int(item[0])<=5:
+    if item[2] == "fruits":
         order.append("sp_1")
-    elif int(item[0])>=6 and int(item[0])<=10:
+    elif item[2] == "dairy":
         order.append("sp_2")
     order.append(currUser+"\n")
     order = " ".join(order)
@@ -79,8 +77,8 @@ currUser = " "
 session = 0
 
 print("\n             ************* Welcome to our customer portal *************                \n")
-print("         Type 'help' in order to look at the commands for navigating the portal easily           ")
-print("\n-----------------------------------------------------------------------------------------------")
+print("         Type 'help' in order to look at the commands for navigating the portal            ")
+print("\n-------------------------------------------------------------------------------")
 
 table = PrettyTable(['Item id','Name','Category','Rate','Available Qty'])
 
@@ -104,10 +102,14 @@ class MyPrompt(Cmd):
         session = login()
         if session == 0:
             print("Username or Password is incorrect")
+        else:
+            print("Logged in !!!")
   
     def do_register(self, inp):
         global session
         session = register()
+        if session == 1:
+            print("Successfully Registered !!!")
         
     def do_items(self, inp):
             items_file = open("items.txt","r")
