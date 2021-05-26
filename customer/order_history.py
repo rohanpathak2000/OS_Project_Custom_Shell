@@ -100,3 +100,5 @@ while ptr:
                 print("Order deleted from the history successfully !!!")
     elif ch == 'N':
         ptr = 0
+
+table.clear_rows()

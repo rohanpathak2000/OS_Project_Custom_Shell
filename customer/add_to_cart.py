@@ -5,6 +5,18 @@ data_folder = Path("E:\Win2020-21\OS\Project")
 
 currUser = sys.argv[1]
 
+def findShopCode(item):
+    curr_file = data_folder / "shopkeeper/shopkeeper.txt"
+    with open(curr_file,'r') as shops_file:
+        shop_snippet_list =  shops_file.readlines()
+        for shop_snippet in shop_snippet_list:
+            shop_category = shop_snippet.split('  ')[-1][:-1]
+            if shop_category == item[2]:
+                shop_code = shop_snippet.split('  ')[0]
+                return shop_code  
+
+    
+
 def issue_order(item, qty, order_id):
     file_to_open = data_folder / "customer/orders.txt" 
     order = []
@@ -14,10 +26,7 @@ def issue_order(item, qty, order_id):
     total_price = int(item[4]) * qty
     order.append(str(total_price))
     order.append("in_cart")
-    if item[2] == "fruits":
-        order.append("sp_1")
-    elif item[2]=="dairy":
-        order.append("sp_2")
+    order.append(findShopCode(item))
     order.append(currUser+"\n")
     order = " ".join(order)
     with open(file_to_open,"a") as orders_file:

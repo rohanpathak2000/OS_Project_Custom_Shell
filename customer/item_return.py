@@ -81,3 +81,5 @@ if found:
             print("Request for return sent !!!")
         else:
             print("Invalid Operation !!! ")
+
+table.clear_rows()

@@ -80,7 +80,7 @@ print("\n             ************* Welcome to our customer portal *************
 print("         Type 'help' in order to look at the commands for navigating the portal            ")
 print("\n-------------------------------------------------------------------------------")
 
-table = PrettyTable(['Item id','Name','Category','Rate','Available Qty'])
+table = PrettyTable(['Item id','Name','Category','Available Qty','Rate'])
 
 class MyPrompt(Cmd):
     def do_exit(self, inp):
@@ -119,6 +119,7 @@ class MyPrompt(Cmd):
                 item[-1] = item[-1][:-1]
                 table.add_row(item)
             print(table)
+            table.clear_rows()
                 
     
     def do_lookup(self, inp):
@@ -145,6 +146,7 @@ class MyPrompt(Cmd):
                         item[-1] = item[-1][:-1]
                         table.add_row(item)
                 print(table)
+                table.clear_rows()
                         
                         
                         

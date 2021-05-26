@@ -65,3 +65,5 @@ if len(order_snippet_list)>0:
         print("Cart is empty !!!!")
 else:
     print("Cart is empty !!!!")       
+
+table.clear_rows()

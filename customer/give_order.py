@@ -57,7 +57,6 @@ def findShop(od):
 
 table = PrettyTable(['Order id','Item','Qty','Cost','Transporter','Shopkeeper'])
 
-print(" ----- Cart Items ----- ")
 file_to_open = data_folder / "customer/orders.txt"
 orders_file = open(file_to_open,"r")
 order_snippet_list = orders_file.readlines()
@@ -95,3 +94,4 @@ print("")
 ch = input("Are you sure you want to put the order ? [Y/N] ")
 if ch == 'Y':
    confirm_order()
+table.clear_rows()   
