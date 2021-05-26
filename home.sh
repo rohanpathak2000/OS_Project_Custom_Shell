@@ -12,4 +12,10 @@ read ch
 if [ $ch -eq 1 ] 
 then
 	python customer.py
+elif [ $ch -eq 2 ] 
+then
+	python transporter.py
+elif [ $ch -eq 3 ] 
+then
+	python shopkeeper.py
 fi 

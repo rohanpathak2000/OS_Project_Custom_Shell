@@ -21,15 +21,14 @@ for item_snippet in item_snippet_list:
 print(table)
 print("Enter the id of the order that has to be picked up")
 dlvd_id=input()
+print("Enter the name of the order that has to be picked up")
+dlvd_name=input()
 curr_dir = data_folder / "customer/orders.txt"
 with open(curr_dir,'w') as dlvd_file:
     for dlvd in item_snippet_list:
         dlvd_list = dlvd.split(" ")
-        if str(dlvd_list[0])==dlvd_id and dlvd_list[4]=="return_p" and dlvd_list[-3]==currUser:
+        if str(dlvd_list[0])==dlvd_id and dlvd_list[4]=="return_p" and dlvd_list[-3]==currUser and dlvd_list[1]==dlvd_name:
             dlvd_list[4]="returned"
             join=" ".join(dlvd_list)
             dlvd_file.write(join)
             continue
-        elif dlvd_list[4]=="delivered":
-            print("order has not been returned yet")
-        dlvd_file.write(dlvd)

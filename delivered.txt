@@ -1,3 +1,0 @@
-od_1 apple 10 500 delivered tp_7 sp_1 utk
-od_7 banana 20 1000 delivered tp_7 sp_1 utk
-od_7 orange 10 200 delivered tp_7 sp_1 utkod_8 orange 5 100 delivered tp_7 sp_1 sahil

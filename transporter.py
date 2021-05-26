@@ -107,11 +107,11 @@ class MyPrompt(Cmd):
         print("\nList of commands\n----------------")
         print("1.login - To login if you already have an account\n2.register - If you are new and wish to create a new account")
         print("3.dvcnf - To Too confirm a delivery\n4.viewitem - To view the items that have been assigned to you")
-        print("4.retnpc - To pickup the returned goods")
+        print("5.retnpc - To pickup the returned goods")
 
     def do_logout(self, inp):
         global session
         session = 0
 
 MyPrompt().cmdloop()
-print("well done")
+print("How was the experience?")
