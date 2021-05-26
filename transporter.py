@@ -3,11 +3,6 @@ from cmd import Cmd
 import os
 from prettytable import PrettyTable
 
-class MyPrompt(Cmd):
-    def do_exit(self, inp):
-        print("bye")
-        return True
-
 def login():
     global currUser
     global session
@@ -17,10 +12,10 @@ def login():
     uname = input(" Username : ")
     pwd = input(" Password : ")
     for user_snippet in user_snippet_list:
-        user = user_snippet.split(' ')
+        user = user_snippet.split('  ')
         if user[0] == uname:
             #print(user[0])
-            if user[3] == pwd:
+            if user[2] == pwd:
                 currUser=uname
                 print("Redirecting...")
                 flag = 1
@@ -38,10 +33,10 @@ def register():
     fname = input(" Enter first name : ")
     lname = input(" Enter last name : ")
     pwd = input(" Enter password : ")
-    new_user = uname + " " + fname + " " + lname + " " + pwd + "\n"
+    new_user = uname + "  " + fname + " " + lname + "  " + pwd + "  " + "free" + "\n"
     if len(user_snippet_list) > 0:
         for user_snippet in user_snippet_list:
-          user = user_snippet.split(' ')
+          user = user_snippet.split('  ')
           if user[0] == uname:
             flag = 0
             break
@@ -63,10 +58,11 @@ def register():
             currUser = uname
             return 1
 
-table = PrettyTable(['Item id','Name','Category','Rate','Available Qty'])
+table = PrettyTable(['Item id','Name','Qty','Rate','Shopkeeper Id'])
+
 class MyPrompt(Cmd):
     def do_exit(self, inp):
-        print(" !!!!!!!  Visit Us Again Soon !!!!!!!")
+        print(" Exiting .....")
         return True
 
     def do_login(self, inp):
@@ -79,63 +75,44 @@ class MyPrompt(Cmd):
         global session
         session = register()
 
-    def do_lookup(self, inp):
-            print("Lookup by \n1. Category Name\n2. Item name")
-            c = input("Enter Choice : ")
-            if c == '1':
-                items_file = open("items.txt","r")
-                cat_name = input("Enter name : ")
+    def do_viewitem(self, inp):
+            if session==1:
+                row=[-1,-1,-1,-1,-1]
+                items_file = open("./transporter/transp.txt","r")
                 item_snippet_list = items_file.readlines()
                 for item_snippet in item_snippet_list:
                     item = item_snippet.split(' ')
-                    if item[2] == cat_name:
-                        item[-1] = item[-1][:-1]
-                        table.add_row(item)
+                    if(item[-3]==currUser):
+                        for i in range(0,4):
+                            row[i]=item[i]
+                        row[-1]=item[-2]
+                        table.add_row(row)
                 print(table)
 
-            elif c == '2':
-                items_file = open("items.txt","r")
-                itm_name = input("Enter name : ")
-                item_snippet_list = items_file.readlines()
-                for item_snippet in item_snippet_list:
-                    item = item_snippet.split(' ')
-                    if item[1] == itm_name:
-                        item[-1] = item[-1][:-1]
-                        table.add_row(item)
-                print(table)
-
-def do_additem(self, inp):
+    def do_dvcnf(self, inp):
         if session == 1:
-            cmnd = "python ./shopkeeper/add_item.py "
+            cmnd = "python ./transporter/delivery_confirmed.py " + currUser
             os.system(cmnd)
         else:
             print("Register or Login first !!!!\nRefer help for commands to login or register")
 
-def do_itemdispatch(self, inp):
+    def do_itemdsp(self, inp):
         if session == 1:
-            cmnd = "python ./shopkeeper/item_dispatch.py "
+            cmnd = "python ./transporter/return_pickup.py " + currUser
             os.system(cmnd)
         else:
-            print("Register or Login first !!!!\nRefer help for commands to login or register")
+            print("Register or Login first !!!!\nRefer help for commands to login or register")     
 
-def do_ordercancel(self, inp):
-        if session == 1:
-            cmnd = "python ./shopkeeper/order_cancelled.py "
-            os.system(cmnd)
-        else:
-            print("Register or Login first !!!!\nRefer help for commands to login or register")       
-
-def do_help(self, inp):
+    def do_help(self, inp):
         print("\nList of commands\n----------------")
         print("1.login - To login if you already have an account\n2.register - If you are new and wish to create a new account")
-        print("3.additem - To add a particular item in your shop\n4.lookup - To search for a particular item")
+        print("3.additem - To add a particular item in your shop\n4.viewitem - To view the items in your cart")
         print("4.itemdispatch - To dispatch the items ordered by the customer")
         print("5.ordercancel - To cancel the dispatch any particular item")
-        print("6.orderHistory - View your order history\n")
 
-def do_logout(self, inp):
+    def do_logout(self, inp):
         global session
         session = 0
 
 MyPrompt().cmdloop()
-print("leaving so early??? :(")
+print("well done")

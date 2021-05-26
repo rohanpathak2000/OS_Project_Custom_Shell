@@ -89,7 +89,6 @@ class MyPrompt(Cmd):
                 temp_line=temp.readlines()
                 for tem in temp_line:
                     bem=tem.split(' ')
-                    print(bem)
                     print(val[:-1])
                     if val==(bem[2]+"\n"):
                         table.add_row(bem)
@@ -122,7 +121,6 @@ class MyPrompt(Cmd):
         print("3.additem - To add a particular item in your shop\n4.viewitem - To view the items in your cart")
         print("4.itemdispatch - To dispatch the items ordered by the customer")
         print("5.ordercancel - To cancel the dispatch any particular item")
-        print("6.orderHistory - View your order history\n")
 
     def do_logout(self, inp):
         global session
