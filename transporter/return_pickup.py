@@ -7,7 +7,6 @@ currUser = sys.argv[1]
 
 from prettytable import PrettyTable
 table = PrettyTable(['Item id','Name','Qty','Rate','Shopkeeper Id'])
-#change qty when return pickup successful
 new_dir = data_folder / "customer/orders.txt"
 row=[-1,-1,-1,-1,-1]
 items_file = open(new_dir,"r")

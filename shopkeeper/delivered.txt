@@ -1,1 +1,3 @@
 od_10 muskmelon 5 250 delivered tp_7 sp_1 utk
+od_12 ghee 50 5000 delivered tp_7 sp_2 utk
+od_12 curd 20 1000 delivered tp_7 sp_2 utk
