@@ -1,6 +1,6 @@
-1 apple fruits 20 50
+1 apple fruits 0 50
 2 banana fruits 50 50
-3 orange fruits 65 20
+3 orange fruits 25 20
 4 mango fruits 20 10
 5 muskmelon fruits 23 50
 6 paneer dairy 15 50
