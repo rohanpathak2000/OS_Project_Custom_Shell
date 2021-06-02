@@ -91,9 +91,9 @@ class MyPrompt(Cmd):
         print("\nList of commands\n----------------")
         print("1.login - To login if you already have an account\n2.register - If you are new and wish to create a new account")
         print("3.items - To view all the items available in the different shops\n4.lookup - To search for a particular item")
-        print("4.addtocart - To add items in your cart\n6.delfromcart - To delete items from your cart")
-        print("5.cart - View the items in your cart\n6.order - To place the order for the items in the cart\n7.profile - To view or update your profile")
-        print("6.orderHistory - View your order history\n")
+        print("5.addtocart - To add items in your cart\n6.delfromcart - To delete items from your cart")
+        print("7.cart - View the items in your cart\n8.order - To place the order for the items in the cart\n9.profile - To view or update your profile")
+        print("10.orderHistory - View your order history\n11.return - To return an item\n12.logout - To logout from your account")
         
         
     def do_returnItem(self,inp):
@@ -210,5 +210,7 @@ class MyPrompt(Cmd):
     def do_logout(self, inp):
         global session
         session = 0
+        print("Logged out successfully !!!")
+
         
 MyPrompt().cmdloop()
